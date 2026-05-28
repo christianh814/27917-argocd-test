@@ -3,10 +3,10 @@ targetRevision: main
 
 applications:
   - name: simple-go
-    namespace: simple-go
+    namespace: demo
     wave: "300"
     targetRevision: main
   - name: gobg
-    namespace: gobg
+    namespace: demo
     wave: "100"
     targetRevision: main
