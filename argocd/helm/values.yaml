@@ -1,0 +1,12 @@
+repoURL: https://github.com/christianh814/27917-argocd-test
+targetRevision: main
+
+applications:
+  - name: simple-go
+    namespace: simple-go
+    wave: "300"
+    targetRevision: main
+  - name: gobg
+    namespace: gobg
+    wave: "100"
+    targetRevision: main

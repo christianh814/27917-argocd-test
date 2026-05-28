@@ -1,0 +1,49 @@
+---
+# Source: app-of-apps/templates/applications.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: simple-go
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "300"
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/christianh814/27917-argocd-test
+    targetRevision: main
+    path: apps/simple-go
+  destination:
+    namespace: simple-go
+    name: in-cluster
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+---
+# Source: app-of-apps/templates/applications.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gobg
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "100"
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/christianh814/27917-argocd-test
+    targetRevision: main
+    path: apps/gobg
+  destination:
+    namespace: gobg
+    name: in-cluster
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+...

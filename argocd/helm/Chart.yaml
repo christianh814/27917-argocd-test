@@ -1,0 +1,6 @@
+apiVersion: v2
+name: app-of-apps
+description: App of Apps Helm chart that deploys an Argo CD root Application and child Applications from values.
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
