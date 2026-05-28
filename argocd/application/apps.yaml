@@ -14,7 +14,7 @@ spec:
     targetRevision: main
     path: apps/simple-go
   destination:
-    namespace: simple-go
+    namespace: demo
     name: in-cluster
   syncPolicy:
     automated:
@@ -38,7 +38,7 @@ spec:
     targetRevision: main
     path: apps/gobg
   destination:
-    namespace: gobg
+    namespace: demo
     name: in-cluster
   syncPolicy:
     automated:
@@ -46,4 +46,3 @@ spec:
       selfHeal: true
     syncOptions:
     - CreateNamespace=true
-...
