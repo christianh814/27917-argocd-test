@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sleep-job
+  labels:
+    app: sleep-job
+  annotations:
+    argocd.argoproj.io/sync-wave: "999"
+    argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+spec:
+  backoffLimit: 0
+  template:
+    metadata:
+      labels:
+        app: sleep-job
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: sleep
+          image: busybox:1.38
+          command: ["sh", "-c", "echo 'sleep started' && sleep 60 && echo 'sleep finished'"]
